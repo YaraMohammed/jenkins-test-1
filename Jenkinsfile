@@ -6,7 +6,7 @@ pipeline {
             steps {
                 sh 'echo $BUILD_NUMBER';
                 sh 'javac HelloWorld.java';
-                sh 'jar cf "$BUILD_NUMBER".jar HelloWorld.class';
+                sh 'jar cf HelloWorld_V."$BUILD_NUMBER".jar HelloWorld.class';
                 sh 'ls'
             }
         }
