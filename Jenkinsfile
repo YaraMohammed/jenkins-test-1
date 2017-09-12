@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'test1'
+                echo $VERSION
             }
         }
         
