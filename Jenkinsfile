@@ -5,7 +5,8 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'echo $BUILD_NUMBER';
-                sh 'mvn --version';
+                sh 'javac HelloWorld.java';
+                sh 'java HelloWorld';
             }
         }
         
