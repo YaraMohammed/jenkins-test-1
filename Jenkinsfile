@@ -10,7 +10,7 @@ pipeline {
                 sh 'jar cf HelloWorld_V."$BUILD_NUMBER".jar HelloWorld.class';
                 sh 'ls'
                 */
-                sh 'echo $VAR'
+                sh 'echo ${VAR}'
             }
         }
         
