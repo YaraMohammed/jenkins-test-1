@@ -10,14 +10,14 @@ pipeline {
                 sh 'jar cf HelloWorld_V."$BUILD_NUMBER".jar HelloWorld.class';
                 sh 'ls'
                 */
-                sh 'echo ${VAR}'
+                sh 'echo $BUILD_NUMBER'
             }
         }
         
     }
     post {
         success{
-     build job: 'test', parameters: [string(name: 'VAR', value: $BUILD_NUMBER)]
+     build job: 'test', parameters: [string(name: 'VAR', value: $env.BUILD_NUMBER)]
         }
     }
 }
