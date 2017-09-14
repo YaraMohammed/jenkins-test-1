@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    parameters {
+        string(name: 'VAR', defaultValue: 'Non', description: 'test pamateres passing?')
+    }
 
     stages {
         stage('Build') {
@@ -10,14 +13,9 @@ pipeline {
                 sh 'jar cf HelloWorld_V."$BUILD_NUMBER".jar HelloWorld.class';
                 sh 'ls'
                 */
-                echo 'build'
+                sh 'echo ${VAR}'
             }
         }
         
-    }
-    post {
-        success{
-     build job: 'test', parameters: [string(name: 'VAR', value: $BUILD_NUMBER)]
-        }
     }
 }
