@@ -13,6 +13,12 @@ pipeline {
                 sh 'echo $BUILD_NUMBER'
             }
         }
+        stage("input"){
+            steps {
+            echo "running"
+            def branchInput = input message: 'Please input branch to test against', parameters: [[$class: 'StringParameterDefinition', defaultValue: 'master', description: '', name: 'branch']]
+            echo "BRANCH NAME: ${branchInput}"
+        }
         
     }
     post {
